@@ -1,0 +1,42 @@
+login:
+  wandb_log: True 
+  wandb_project: eval-token-level-OG-model
+  wandb_run_name: bounds 
+training:
+  eval_iters: 5
+data:
+  block_size: 1024
+  perturb_word_order_window_size: 0
+model:
+  n_layer: 12
+  n_head: 12
+  n_embd: 768
+  apply_rope: False
+  use_mistral_sliding_window: False
+  init_from: best_ckpt
+  best_checkpoint_path: TOADD
+  finetuned_quip: None
+sublora:
+  use_lora: False
+  lora_alpha: 32
+  lora_dropout: 0.1
+  attention_linear_use_lora: False
+  attention_linear_lora_r: 0
+  linear_head_lora_r: 0
+  linear_head_enable_lora: False
+  intrinsic_dim: 0
+bounds:
+  use_kmeans: False
+  quant_lr: 5e-5
+  eval_batch_size: 6
+  max_quant_iters: 0
+  levels: 11 
+  bound_samples: 10000
+  bound_type: token_level
+  sliding_window_size: 100
+  misc_extra_bits: 7
+  use_quip: False
+  quip_model: TOADD
+  quip_model_cache_dir: TOADD
+analysis:
+  analyze_quantization: False
